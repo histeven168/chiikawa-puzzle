@@ -12,3 +12,19 @@ Just click or tap to place pieces - it's that easy! The controls are designed to
 
 # Free browser gameplay
 Play instantly in your web browser with no downloads, installations, or accounts required. Completely free access to all Chiikawa puzzle content - just open the page and start building your favorite characters!
+
+# how to play chiikawa puzzle game
+1. Choose your Chiikawa character
+Start your puzzle adventure by selecting from adorable Chiikawa characters including Chiikawa, Hachiware, and Usagi. Each character offers a unique puzzle challenge with different piece arrangements. Pick your favorite cute friend and get ready for a delightful memory game experience!
+2. Place pieces with memory magic
+Here's where the Chiikawa puzzle gets interesting! Click or tap to place puzzle pieces in their correct positions. But here's the twist - once you place a piece, it completely disappears from view!
+You'll need to rely on your memory to remember exactly where each Chiikawa character part belongs. This unique mechanic makes each Chiikawa game session both challenging and rewarding as you build your favorite characters piece by piece.
+3. Complete and share your creation
+Watch your Chiikawa puzzle come to life as you successfully place all the pieces! Each completed character reveals the adorable final image, bringing joy and satisfaction to every puzzle session. Share your completed artwork with friends or challenge yourself with different characters.
+
+# fun ways to play
+1. Perfect Assembly: Try to build characters exactly as they should look for the most adorable results.
+2. Creative Mix-ups: Experiment with placing pieces in unexpected spots to create hilarious mixed-up versions.
+3. Speed Challenges: Time yourself completing each Chiikawa game and try to beat your personal records.
+4. Character Collection: Work through all available characters to see every cute design.
+5. Memory Training: Use the disappearing pieces mechanic to improve your visual memory skills while having fun.

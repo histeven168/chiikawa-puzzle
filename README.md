@@ -1,6 +1,8 @@
 # chiikawa-puzzle
 [Chiikawa Puzzle](https://chiikawapuzzle.co) is a delightful memory-based puzzle game that brings the beloved world of Chiikawa characters to life in an interactive way. 
 
+![chiikawa puzzle](https://chiikawapuzzle.co/images/chiikawapuzzle.webp)
+
 # Memory-based gameplay
 Experience unique puzzle mechanics where pieces disappear after placement! This innovative feature challenges your memory skills while you build adorable Chiikawa characters, making each session both fun and mentally engaging.
 

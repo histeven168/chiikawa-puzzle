@@ -1,0 +1,458 @@
+
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Chiikawa Puzzle | Online Memory Puzzle Game</title><meta name="description" content="Chiikawa Puzzle - a delightful memory puzzle game featuring cute characters! Place disappearing pieces to build adorable Chiikawa friends."><meta name="keywords" content="Chiikawa Puzzle"><link rel="canonical" href="https://chiikawapuzzle.co/"><link rel="alternate" hreflang="en" href="https://chiikawapuzzle.co/"><link rel="alternate" hreflang="es" href="https://chiikawapuzzle.co/es/"><link rel="alternate" hreflang="ja" href="https://chiikawapuzzle.co/ja/"><meta name="msvalidate.01" content="E6DAC9F6D0FBDB750354504C0BA92D1B" /><link rel="alternate" hreflang="ko" href="https://chiikawapuzzle.co/ko/"><link rel="alternate" hreflang="zh-CN" href="https://chiikawapuzzle.co/zh-CN/"><link rel="alternate" hreflang="zh-TW" href="https://chiikawapuzzle.co/zh-TW/"><link rel="alternate" hreflang="th" href="https://chiikawapuzzle.co/th/"><link rel="alternate" hreflang="vi" href="https://chiikawapuzzle.co/vi/"><link rel="alternate" hreflang="x-default" href="https://chiikawapuzzle.co/"><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Quicksand:wght@400;500;600;700&family=Bubblegum+Sans:wght@400&family=Nunito:wght@400;600;700;800&display=optional" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Quicksand:wght@400;500;600;700&family=Bubblegum+Sans:wght@400&family=Nunito:wght@400;600;700;800&display=optional"></noscript><style>:where(article,aside,nav,section) h1{font-size:1.5rem;line-height:2rem}
+/* internal fullscreen */
+#game-frame-wrap.internal-fullscreen{position:fixed !important;inset:0 !important;left:0 !important;top:0 !important;width:100vw !important;height:100vh !important;z-index:2147483600 !important;margin:0 !important;border-radius:0 !important;padding-top:0 !important;background:var(--bg) !important;border:none !important}
+#game-frame-wrap.internal-fullscreen>iframe{border-radius:0 !important}
+/* section-wide internal fullscreen */
+#play-speed-stars-unblocked-online.internal-fullscreen-section{position:fixed !important;inset:0 !important;width:100vw !important;height:100vh !important;z-index:2147483600 !important;background:var(--bg) !important;padding:0 !important;margin:0 !important;display:block !important}
+#play-speed-stars-unblocked-online.internal-fullscreen-section > .hidden{display:none !important}
+#play-speed-stars-unblocked-online.internal-fullscreen-section .lg\:col-span-8{grid-column:1/-1 !important;width:100% !important;max-width:100% !important;margin:0 !important}
+#play-speed-stars-unblocked-online.internal-fullscreen-section #game-card{position:absolute !important;inset:0 !important;border-radius:0 !important;margin:0 !important;height:auto !important;border:none !important}
+#play-speed-stars-unblocked-online.internal-fullscreen-section #game-frame-wrap{position:absolute !important;left:0;right:0;top:0;bottom:var(--controls-h,96px);padding-top:0 !important;background:transparent !important}
+#play-speed-stars-unblocked-online.internal-fullscreen-section #game-frame-wrap>iframe{width:100% !important;height:100% !important;border-radius:0 !important}
+#play-speed-stars-unblocked-online.internal-fullscreen-section #game-controls{position:absolute !important;left:0;right:0;bottom:0;z-index:2147483601;background:var(--bg);padding:.75rem 1rem}
+/* hide scrollbar and toc in internal fullscreen */
+html.internal-fs{overflow:hidden !important}
+html.internal-fs body{overflow:hidden !important}
+html.internal-fs #toc-toggle, html.internal-fs #html-toc{display:none !important}
+</style><link rel="preload" as="image" href="/images/logo.webp" imagesrcset="/images/logo.webp 1x" fetchpriority="high" importance="high"><link rel="icon" href="/images/favicon.png" type="image/png"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="/template/default/css/twmin.css"><meta property="og:type" content="website"><meta property="og:site_name" content="Chiikawa Puzzle"><meta property="og:title" content="Chiikawa Puzzle | Online Memory Puzzle Game"><meta property="og:description" content="Chiikawa Puzzle - a delightful memory puzzle game featuring cute characters! Place disappearing pieces to build adorable Chiikawa friends."><meta property="og:url" content="https://chiikawapuzzle.co/"><meta property="og:image" content="https://chiikawapuzzle.co/images/ico-500x500.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@Chiikawa Puzzle" /><meta name="twitter:creator" content="@Chiikawa Puzzle" /><link rel="apple-touch-icon" sizes="180x180" href="https://chiikawapuzzle.co/images/ico-180x180.png"><meta name="twitter:title" content="Chiikawa Puzzle | Online Memory Puzzle Game" /><meta name="twitter:url" content="https://chiikawapuzzle.co/" /><meta name="twitter:image" content="https://chiikawapuzzle.co/images/ico-500x500.png" /><meta name="twitter:description" content="Chiikawa Puzzle - a delightful memory puzzle game featuring cute characters! Place disappearing pieces to build adorable Chiikawa friends."><meta name="twitter:card" content="summary" /><style>:root{--accent:#41251F;--bg:#E3EFDB;--text:#41251F;--card-bg:#D2EBC1;--card-border:#8D8C66;--surface:#EFEEB8;--text-secondary:#41251F;--chiikawa-green:#41251F;--chiikawa-yellow:#FFFB66;--chiikawa-border:#8D8C66;--heading-color:#354536}
+html,body{height:100%}body{font-family:'Quicksand',Nunito,'Bubblegum Sans','Comic Sans MS','Marker Felt','Trebuchet MS','microsoft yahei',cursive,sans-serif;background:var(--bg);color:var(--text);font-size:18px;line-height:1.6;font-weight:500}h1,h2,h3,h4,h5,h6{font-weight:700}h1{font-size:2.5rem}h2{font-size:2rem}h3{font-weight:600}a{color:inherit;transition:color .2s ease}a:hover{color:#7BB068}.btn{transition:transform .15s ease,opacity .15s ease}.btn:active{transform:scale(.98)}.card{background:var(--card-bg);backdrop-filter:saturate(140%) blur(6px);border:none;border-radius:15px;box-shadow:0 4px 12px rgba(159,207,147,.15)}.soft-surface{background:var(--surface)}header.site-header{border-bottom:1px solid var(--card-border)}.brand-title{background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;-webkit-text-fill-color:initial !important;color:var(--text) !important}</style><style>.gradient-text.brand-title{background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;-webkit-text-fill-color:initial !important;color:inherit !important}</style><style>.brand-title{display:inline-block !important;background:linear-gradient(90deg,var(--chiikawa-green),var(--chiikawa-yellow)) !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;font-weight:800 !important}</style><style>.share-btn:hover{background:#F8F974;color:#2D3B2F;border:1px solid #8F8E5C;box-shadow:0 10px 22px rgba(159,207,147,.35)}.resp-iframe{position:relative;width:100%;padding-top:56.25%}.resp-iframe>iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:.5rem}.share-pop{position:absolute;right:0;top:3rem;z-index:40}.star{cursor:pointer;transition:transform .12s ease}.star:hover{transform:scale(1.05)}.faq-section,.howto-section{content-visibility:auto;contain-intrinsic-size:900px}.step-dot{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;border-radius:50%;background:#EFEEB8;color:#2D3B2F;font-weight:bold;border:1px solid #8F8E5C;box-shadow:0 6px 16px rgba(159,207,147,.35)}#played-text,#avg-rating{color:var(--text-secondary) !important}.text-gray-300{color:var(--text-secondary) !important}.btn{color:var(--text);font-weight:600}.share-btn{background:var(--surface);border:1px solid #8F8E5C;color:var(--text);transition:background .2s ease,box-shadow .2s ease,color .2s ease;font-weight:600}.star svg{transition:fill .15s ease,stroke .15s ease}.star svg path{transition:fill .15s ease,stroke .15s ease}.btn.soft-surface{transition:background .2s ease,color .2s ease,transform .12s ease}.btn.soft-surface:hover{background:#F8F974;color:#2D3B2F;border:1px solid #8F8E5C}.howto-section .howto-step{align-items:center}.howto-section .howto-divider{height:1px;background:var(--card-border)}.howto-section .step-img{border:1px solid var(--card-border);width:300px;height:300px;object-fit:cover}.howto-section .grid>article{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}.howto-section .grid>article>.inline-flex{justify-content:center;gap:.5rem;text-align:center}.howto-section .grid>article>p,.howto-section .grid>article>div:not(.inline-flex){text-align:left}
+
+/* Language Selector Kawaii Styles */
+.language-selector {
+    font-family: var(--heading-font);
+}
+
+.lang-btn {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid #8F8E5C;
+    box-shadow: 0 2px 8px rgba(141,140,102,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+}
+
+.lang-btn:hover {
+    background: #C8DDB3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(141,140,102,0.15);
+}
+
+.lang-btn.active .lang-arrow {
+    transform: rotate(180deg);
+}
+
+.lang-flag {
+    font-size: 1.1em;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+.lang-dropdown {
+    background: var(--bg);
+    border: 1px solid #8F8E5C;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(141,140,102,0.2);
+}
+
+.language-selector:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(143,142,92,0.1);
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.lang-option:last-child {
+    border-bottom: none;
+}
+
+.lang-option:hover {
+    background: var(--hover-bg) !important;
+    color: var(--hover-text);
+    transform: translateX(2px);
+}
+
+.lang-option.active {
+    background: #D2EBC1;
+    color: #41251F;
+    font-weight: 600;
+}
+
+.lang-option.active::after {
+    content: '✓';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9FCF93;
+    font-weight: bold;
+}
+
+.lang-emoji {
+    font-size: 1.2em;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+}
+
+.lang-name {
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .lang-btn {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .lang-text {
+        display: none;
+    }
+    
+    .lang-flag {
+        font-size: 1.3em;
+    }
+    
+    .lang-dropdown {
+        min-width: 140px;
+        right: -10px;
+    }
+    
+    .lang-option {
+        padding: 0.75rem 1rem;
+    }
+    
+    .lang-name {
+        font-size: 0.9rem;
+    }
+}.howto-section .grid>article picture,.howto-section .grid>article>img{align-self:center}@media(min-width:1024px){.howto-section .grid>article{flex-direction:column;align-items:center}}.howto-section .grid>article picture,.howto-section .grid>article>img{max-width:220px;border:1px solid var(--card-border);border-radius:.5rem;box-shadow:0 10px 24px rgba(0,0,0,.25)}@media(min-width:1024px){.howto-section .grid>article picture,.howto-section .grid>article>img{max-width:300px}}@media(min-width:1280px){.howto-section .grid>article picture,.howto-section .grid>article>img{max-width:360px}}.howto-section .grid>article .heading-font{margin:0}.howto-section .grid>article .step-dot{width:2rem;height:2rem}.howto-section .grid>article+article{padding-top:1rem;margin-top:.5rem}.faq-section details summary{display:flex;align-items:center;gap:.5rem;cursor:pointer}.faq-section details summary h3{margin:0;line-height:1.4}.faq-section details summary::-webkit-details-marker{display:none}.faq-section details summary::marker{content:''}.faq-section details summary::before{content:'';display:inline-block;width:.6rem;height:.6rem;border-right:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease;margin-right:.1rem}.faq-section details[open] summary::before{transform:rotate(135deg)}.howto-section h2,.about-section h2,.faq-section h2,.features-section h2{margin-bottom:1.5rem;color:#41251F}.howto-section h3{font-weight:800;letter-spacing:.01em}.howto-section h3::after{content:"";display:block;width:64px;height:4px;margin:.4rem auto 0;background:#8F8E5C;border-radius:9999px;opacity:.95}.features-section h3{font-weight:700}.features-section h3{margin-bottom:.75rem}.feature-card .icon-wrap{width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#EFEEB8;color:#2D3B2F;border:1px solid #8F8E5C;box-shadow:0 8px 20px rgba(159,207,147,.25)}.feature-card .badge{min-width:28px;height:28px;border-radius:9999px;background:rgba(255,255,255,.08);display:inline-flex;align-items:center;justify-content:center;margin-left:.5rem;font-weight:700}#back-to-top{position:fixed;right:20px;bottom:20px;width:48px;height:48px;display:none;display:none;align-items:center;justify-content:center;background:var(--card-bg);border:1px solid var(--card-border);color:var(--text);border-radius:9999px;box-shadow:var(--shadow);font-size:0;z-index:2147483600}#back-to-top svg path{fill:currentColor}.toc-toggle{position:fixed;right:20px;bottom:84px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--card-bg);border:1px solid var(--card-border);color:var(--text);border-radius:9999px;box-shadow:var(--shadow);font-size:0;z-index:2147483600}.toc-toggle svg circle,.toc-toggle svg rect,.toc-toggle svg path{fill:currentColor}.html-toc{position:fixed;right:20px;bottom:135px;z-index:2147483599;display:none}.html-toc.open{display:block}.html-toc-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:saturate(120%) blur(2px);z-index:49;display:none}.html-toc.open .html-toc-backdrop{display:block}.html-toc-pop{position:relative;z-index:50;min-width:260px;max-width:86vw;max-height:60vh;overflow:auto;background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.toc-header{padding:10px 12px 6px 12px;font-weight:600;color:var(--text)}.toc-list{list-style:none;padding:4px 12px 12px 12px;margin:0}.toc-item{margin:6px 0;display:flex;align-items:flex-start;gap:8px}.toc-dot{display:inline-block;width:6px;height:6px;border-radius:9999px;background:var(--text);margin-top:10px;opacity:.8}.toc-link{color:var(--text);text-decoration:none;line-height:1.5}.html-toc.open .html-toc-backdrop{display:none !important}.toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:9999;padding:15px 24px;border-radius:8px;background:rgba(0,0,0,.75);color:#fff;font-size:14px;opacity:0;transition:opacity .2s ease}.toast.show{opacity:1}.toast-success{background:rgba(16,185,129,.9)}.toast-error{background:rgba(239,68,68,.95)}</style><style>@media(max-width:640px){#title-line{display:flex;flex-direction:column;align-items:flex-start;gap:4px}#title-line #played-text{margin-left:0;display:block}}</style><style>@media(max-width:640px){#game-controls{gap:10px}.heading-font.text-2xl{display:block}.heading-font.text-2xl + #played-text{display:block;margin-left:0}.heading-font + #played-text{display:block}.heading-font ~ #played-text{display:block}.heading-font + span#played-text{display:block}.heading-font + #played-text{margin-top:2px}.heading-font{white-space:normal}.heading-font + #played-text{white-space:normal}.heading-font + #played-text{line-height:1.4}
+#controls-actions{display:grid !important;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
+#controls-actions>a.btn,#controls-actions>button.btn{width:100%;justify-content:center}
+#controls-actions svg{margin:0 auto}}</style><style>@media(max-width:640px){.step-img{display:block !important;margin:0 auto !important;width:300px !important;height:300px !important;object-fit:cover !important}.howto-section .grid>article picture,.about-section picture{display:block !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;float:none !important}
+}
+</style><style>
+a:hover{color:#7BB068 !important}
+/* comments overrides */
+.comments__form_submit{background:#EFEEB8 !important;color:#2D3B2F !important;border:1px solid #8F8E5C !important}
+.comments__form-input:focus{outline:2px solid #41251F !important}
+/* controls buttons border */
+#controls-actions .btn{border:1px solid #A2A16E !important}
+/* ensure game area keeps its border, but remove from content cards */
+#game-card{border:1px solid var(--card-border) !important}
+.howto-section .card,.about-section .card,.features-section .card,.faq-section .card{border:none !important}
+</style><style>
+/* brand title gradient fallback */
+.brand-title,.site-title{background:linear-gradient(90deg,var(--chiikawa-green),var(--chiikawa-yellow)) !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important}
+</style><style>
+/* fix: prevent overlap in howto articles and remove grid lines */
+.howto-section .grid>article{display:flex !important;flex-direction:column !important;align-items:center !important;gap:1rem !important}
+.howto-section .grid>article>.inline-flex{order:1}
+.howto-section .grid>article>p,.howto-section .grid>article>div:not(.inline-flex){order:3;text-align:left}
+.howto-section .grid>article picture,.howto-section .grid>article>img{order:2;align-self:center}
+</style><link rel="preload" as="style" href="/template/default/css/comments.css?v=2" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/template/default/css/comments.css?v=2"></noscript><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Chiikawa Puzzle","url":"https://chiikawapuzzle.co/","inLanguage":"en"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Chiikawa Puzzle","applicationCategory":"Game","operatingSystem":"Web Browser","genre":["Puzzle","Memory","Casual"],"image":"https://chiikawapuzzle.co/images/ico-1024x1024.webp","url":"https://chiikawapuzzle.co/","publisher":{"@type":"Organization","name":"Chiikawa Puzzle"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","ratingCount":"1179","bestRating":"5","worstRating":"1"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","category":"free"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to play Chiikawa Puzzle Game","inLanguage":"en","totalTime":"PT5M","tool":[{"@type":"HowToTool","name":"Mouse or Touch"}],"step":[{"@type":"HowToStep","position":1,"name":"Choose your character","text":"Select from adorable Chiikawa characters including Chiikawa, Hachiware, and Usagi. Each character offers a unique puzzle challenge with different piece arrangements and difficulty levels.","image":"https://chiikawapuzzle.co//images/step1.webp"},{"@type":"HowToStep","position":2,"name":"Place the pieces carefully","text":"Click or tap to place puzzle pieces in their correct positions. Remember, once you place a piece, it disappears! You'll need to rely on your memory to remember where each part belongs as you build your favorite Chiikawa character.","image":"https://chiikawapuzzle.co//images/step2.webp"},{"@type":"HowToStep","position":3,"name":"Complete and share","text":"Finish assembling your cute Chiikawa character and watch the final image come to life! Share your completed puzzle with friends or try creating funny mixed-up versions by placing pieces in unexpected spots for hilarious results.","image":"https://chiikawapuzzle.co//images/step3.webp"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Is Chiikawa Puzzle official?","acceptedAnswer":{"@type":"Answer","text":"No, Chiikawa Puzzle is a fan-made game. Chiikawa and related characters were created by Nagano. This puzzle game is created by fans for fans to enjoy the adorable world of Chiikawa in a new interactive way."}},{"@type":"Question","name":"Does Chiikawa Puzzle work on phones?","acceptedAnswer":{"@type":"Answer","text":"Yes! Chiikawa Puzzle is fully compatible with mobile web browsers and plays smoothly on both smartphones and desktop computers. Just tap to place pieces and enjoy the cute puzzle experience anywhere."}},{"@type":"Question","name":"How much does Chiikawa Puzzle cost?","acceptedAnswer":{"@type":"Answer","text":"Chiikawa Puzzle is completely free to play in your browser. No downloads, no accounts, and no hidden costs required - just pure Chiikawa puzzle fun made by fans for fans."}},{"@type":"Question","name":"How long does each Chiikawa Puzzle take to complete?","acceptedAnswer":{"@type":"Answer","text":"Each Chiikawa Puzzle session takes just a few minutes to complete, making it perfect for quick breaks or when you want some instant cute character fun. The bite-sized gameplay fits perfectly into your daily routine."}},{"@type":"Question","name":"What makes Chiikawa Puzzle different from other puzzle games?","acceptedAnswer":{"@type":"Answer","text":"Unlike regular puzzles, Chiikawa Puzzle features a unique memory mechanic - pieces disappear after you place them! You need to remember where each Chiikawa character part goes, making it more challenging and engaging than traditional puzzle games."}},{"@type":"Question","name":"Which Chiikawa characters can I play with?","acceptedAnswer":{"@type":"Answer","text":"You can build beloved characters like Chiikawa, Hachiware, Usagi, and other cute friends from the popular manga and anime series. Each character offers their own unique puzzle challenge to solve."}},{"@type":"Question","name":"Where can I play Chiikawa Puzzle online?","acceptedAnswer":{"@type":"Answer","text":"You can play Chiikawa Puzzle right here in your browser! The game is available online with no downloads or installations needed - just visit our website and start playing immediately."}}]}</script></head><body class="min-h-screen antialiased"><header class="w-full border-b border-white border-opacity-10 site-header"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between"><a href="/" class="inline-flex items-center gap-4" aria-label="Chiikawa Puzzle"><picture><source type="image/webp" srcset="/images/logo.webp"><img src="/images/logo.webp" alt="Chiikawa Puzzle" width="192" height="192" class="rounded" loading="eager" fetchpriority="high"></picture><span class="heading-font text-2xl sm:text-3xl lg:text-4xl leading-none gradient-text brand-title site-title">ChiikawaPuzzle.co</span></a><div class="flex items-center gap-2"><div class="language-selector relative"><button class="lang-btn flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300" id="langToggle" aria-label="Select Language"><span class="lang-flag">🌍</span><span class="lang-text text-sm font-medium">English</span><svg class="lang-arrow w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="lang-dropdown absolute right-0 top-full mt-2 bg-white rounded-2xl shadow-xl border border-opacity-20 border-gray-300 overflow-hidden opacity-0 invisible transform translate-y-2 transition-all duration-300 z-50 min-w-[160px]" id="langDropdown"><div class="lang-option-wrapper"><a href="/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 active"><span class="lang-emoji">EN</span><span class="lang-name">English</span></a><a href="/es/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">ES</span><span class="lang-name">Español</span></a><a href="/ja/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">JP</span><span class="lang-name">日本語</span></a><a href="/ko/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">KR</span><span class="lang-name">한국어</span></a><a href="/zh-CN/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">CN</span><span class="lang-name">简体中文</span></a><a href="/zh-TW/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">TW</span><span class="lang-name">繁體中文</span></a><a href="/th/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">TH</span><span class="lang-name">ไทย</span></a><a href="/vi/" class="lang-option flex items-center gap-3 px-4 py-3 hover:bg-opacity-80 transition-all duration-200 "><span class="lang-emoji">VN</span><span class="lang-name">Tiếng Việt</span></a></div></div></div></div></div></header><main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 space-y-8"><section class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start" id="play-speed-stars-unblocked-online"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><div id="game-card" class="card rounded-lg p-3 sm:p-4"><div class="resp-iframe" id="game-frame-wrap"><iframe id="game-frame" src="/play.html" title="Play Chiikawa Puzzle Online" loading="lazy" allowfullscreen referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-orientation-lock allow-presentation"></iframe></div><div id="game-controls" class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><div class="flex items-center gap-3 flex-wrap"><div id="title-line" class="flex items-baseline gap-3"><h1 class="heading-font text-2xl sm:text-3xl">Chiikawa Puzzle</h1><span id="played-text" class="text-base text-gray-300">(played 1918 times)</span></div><div class="flex items-center gap-1 ml-1" aria-label="rate this game"><button class="star" data-star="1" aria-label="rate 1"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="2" aria-label="rate 2"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="3" aria-label="rate 3"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="4" aria-label="rate 4"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="star" data-star="5" aria-label="rate 5"><svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M12 2l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><span class="text-sm text-gray-300 ml-2 mr-1">1179 voted,</span><span id="avg-rating" class="text-sm text-gray-300 ml-1">5/1179</span></div></div><div id="controls-actions" class="flex items-center gap-2 sm:gap-3 flex-nowrap ml-auto self-end sm:self-auto justify-end w-full sm:w-auto"><a href="#discuss-chiikawa-puzzle" class="btn inline-flex items-center gap-2 px-4 h-12 rounded-md soft-surface hover:bg-opacity-20 whitespace-nowrap" aria-label="Go to comments"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-message"></use></svg><span class="text-base text-gray-300">3</span></a><button id="internal-fs-btn" class="btn inline-flex items-center gap-2 px-4 h-12 rounded-md soft-surface hover:bg-opacity-20 text-gray-100 whitespace-nowrap" aria-label="Internal fullscreen"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-rectangle"></use></svg></button><button id="fs-btn" class="btn inline-flex items-center gap-2 px-4 h-12 rounded-md soft-surface hover:bg-opacity-20 text-gray-100 whitespace-nowrap" aria-label="Fullscreen (game)"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-maximize"></use></svg></button></div><div class="mt-4 flex justify-center"></div></div></div></div><div class="hidden lg:block lg:col-span-2"></div></section><section class="mt-2 grid grid-cols-1 lg:grid-cols-12 gap-4 items-start"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><div class="flex justify-center"><nav class="flex items-center gap-4" aria-label="Share links"><a rel="nofollow no-referrer" href="#" data-share="x" class="btn share-btn inline-flex items-center justify-center w-12 h-12 rounded-full" title="Share to X/Twitter"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M18.244 2H21l-6.56 7.497L22 22h-6.828l-4.398-5.588L5.6 22H3l7.02-8.014L2 2h6.914l3.94 5.142L18.244 2Zm-2.392 18h1.837L8.27 4h-1.9l9.482 16Z"/></svg></a><a rel="nofollow no-referrer" href="#" data-share="facebook" class="btn share-btn inline-flex items-center justify-center w-12 h-12 rounded-full" title="Share to Facebook"><svg class="w-6 h-6"><use href="#icon-facebook"/></svg></a><a rel="nofollow no-referrer" href="#" data-share="linkedin" class="btn share-btn inline-flex items-center justify-center w-12 h-12 rounded-full" title="Share to LinkedIn"><svg class="w-6 h-6"><use href="#icon-linkedin"/></svg></a><a rel="nofollow no-referrer" href="#" data-share="discord" class="btn share-btn inline-flex items-center justify-center w-12 h-12 rounded-full" title="Share to Discord"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.847-.276-3.68-.276-5.486 0-.164-.398-.405-.874-.617-1.249a.074.074 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.069.069 0 0 0-.032.027C1.98 9.045 1.157 13.58 1.5 18.061a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.999 3.03.078.078 0 0 0 .084-.027c.462-.63.873-1.295 1.226-1.993a.076.076 0 0 0-.041-.105 12.9 12.9 0 0 1-1.806-.86.077.077 0 0 1-.008-.128c.121-.091.243-.186.358-.281a.074.074 0 0 1 .077-.01c3.78 1.726 7.87 1.726 11.61 0a.074.074 0 0 1 .078.01c.115.095.237.19.358.281a.077.077 0 0 1-.007.128c-.58 .338-1.18 .627-1.807 .86a.076 .076 0 0 0-.041 .106c.36 .697 .77 1.362 1.226 1.993a.078 .078 0 0 0 .084 .027 19.87 19.87 0 0 0 6-3.03 .082 .082 0 0 0 .03-.057c.5-6.177-.838-10.673-2.958-13.665a.061 .061 0 0 0-.031-.027Z"/></svg></a><a rel="nofollow no-referrer" href="#" data-share="reddit" class="btn share-btn inline-flex items-center justify-center w-12 h-12 rounded-full" title="Share to Reddit"><svg t="1755356137059" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1843" width="30" height="30"><path fill="currentColor" d="M255.992 639.980001c0-35.358895 28.639105-63.998 63.998-63.998s63.998 28.639105 63.998 63.998c0 35.358895-28.639105 63.998-63.998 63.998s-63.998-28.639105-63.998-63.998zM639.980001 639.980001c0-35.358895 28.639105-63.998 63.998-63.998s63.998 28.639105 63.998 63.998c0 35.358895-28.639105 63.998-63.998 63.998s-63.998-28.639105-63.998-63.998zM643.083904 776.743727c16.479485-12.991594 40.382738-10.143683 53.374332 6.335802s10.143683 40.382738-6.335802 53.374332c-45.886566 36.15887-115.804381 59.51814-178.138433 59.51814s-132.251867-23.35927-178.138433-59.51814c-16.479485-12.991594-19.327396-36.894847-6.335802-53.374332s36.894847-19.327396 53.374332-6.335802c26.431174 20.831349 78.71754 43.230649 131.099903 43.230649s104.668729-22.3993 131.099903-43.230649zM1023.968001 511.984c0-70.685791-57.310209-127.996-127.996-127.996-48.126496 0-89.981188 26.55917-111.836505 65.821943-65.789944-35.998875-145.947439-59.230149-233.27271-64.605981l76.381613-171.51464 146.203431 42.206681c13.151589 37.342833 48.702478 64.125996 90.55717 64.125996 53.022343 0 95.997-42.974657 95.997-95.997s-42.974657-95.997-95.997-95.997c-36.542858 0-68.349864 20.447361-84.541358 50.526421l-162.906909-47.03853c-18.23943-5.247836-37.534827 3.711884-45.246586 21.055342l-103.772757 233.016718c-85.149339 5.983813-163.258898 29.023093-227.640886 64.221993-21.855317-39.262773-63.774007-65.789944-111.868504-65.789944-70.685791 0-127.996 57.310209-127.996 127.996 0 52.318365 31.391019 97.244961 76.381613 117.084341-8.063748 24.031249-12.383613 49.118465-12.383613 74.909659 0 176.730477 200.569732 319.99 447.986 319.99s447.986-143.259523 447.986-319.99c0-25.791194-4.287866-50.846411-12.383613-74.87766 44.958595-19.83938 76.381613-64.797975 76.381613-117.11634zM863.973001 187.994125c19.871379 0 35.998875 16.127496 35.998875 35.998875s-16.127496 35.998875-35.998875 35.998875-35.998875-16.127496-35.998875-35.998875 16.127496-35.998875 35.998875-35.998875zM63.998 511.984c0-35.294897 28.703103-63.998 63.998-63.998 25.503203 0 47.582513 15.007531 57.854192 36.638855-33.438955 25.375207-61.150089 54.622293-81.661448 86.749289-23.519265-9.471704-40.190744-32.510984-40.190744-59.390144zM511.984 947.970376c-205.43358 0-371.988375-109.244586-371.988375-243.992375s166.554795-243.992375 371.988375-243.992375c205.43358 0 371.988375 109.244586 371.988375 243.992375s-166.554795 243.992375-371.988375 243.992375zM919.779257 571.374145c-20.511359-32.094997-48.222493-61.374082-81.661448-86.749289 10.271679-21.631324 32.350989-36.638855 57.854192-36.638855 35.294897 0 63.998 28.703103 63.998 63.998 0 26.87916-16.63948 49.91844-40.190744 59.390144z" p-id="1844"></path></svg></a><button data-share="copy" class="btn share-btn inline-flex items-center justify-center w-12 h-12 rounded-full" title="Copy link"><svg class="w-6 h-6"><use href="#icon-copy"/></svg></button></nav></div></div><div class="hidden lg:block lg:col-span-2"></div></section><section class="space-y-6 howto-section grid grid-cols-1 lg:grid-cols-12 gap-4 items-start"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><h2 id="how-to-play-chiikawa-puzzle" class="heading-font text-2xl sm:text-3xl text-center"><span class="h2-gradient">How to play Chiikawa Puzzle Game</span></h2><div class="grid grid-cols-1 gap-6"><article class="card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">1</span><h3 class="heading-font text-2xl">Choose your Chiikawa character</h3></div><picture><img src="/images/step1.webp" alt="Chiikawa Puzzle character selection" loading="lazy" class="rounded-md w-full max-w-[400px] h-auto mx-auto step-img"></picture><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Start your puzzle adventure by selecting from adorable <strong>Chiikawa characters</strong> including Chiikawa, Hachiware, and Usagi. Each character offers a unique puzzle challenge with different piece arrangements. Pick your favorite cute friend and get ready for a delightful memory game experience!</p></article><article class="card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">2</span><h3 class="heading-font text-2xl">Place pieces with memory magic</h3></div><picture><img src="/images/step2.webp" alt="Chiikawa Puzzle piece placement" loading="lazy" class="rounded-md w-full max-w-[400px] h-auto mx-auto step-img"></picture><div class="text-lg text-gray-300 max-w-prose space-y-2 mx-auto text-left"><p>Here's where the <strong>Chiikawa puzzle</strong> gets interesting! Click or tap to place puzzle pieces in their correct positions. But here's the twist - once you place a piece, it completely disappears from view!</p><p class="text-left text-lg">You'll need to rely on your memory to remember exactly where each Chiikawa character part belongs. This unique mechanic makes each <em>Chiikawa game</em> session both challenging and rewarding as you build your favorite characters piece by piece.</p><div class="grid grid-cols-1 gap-3"><div class="space-y-1"><p class="font-semibold" style="color:var(--text)">🧩 Simple Controls</p><p><kbd class="px-2 py-1 rounded soft-surface border" style="border-color:var(--card-border)">Click/Tap</kbd> Place puzzle pieces</p><p><kbd class="px-2 py-1 rounded soft-surface border" style="border-color:var(--card-border)">Arrow Keys</kbd> Navigate between characters</p></div><div class="space-y-1"><p class="font-semibold" style="color:var(--text)">🎮 Game Features</p><p><strong>Memory Challenge:</strong> Pieces vanish after placement - remember their positions!</p><p><strong>Mobile Friendly:</strong> Smooth touch controls for phones and tablets</p></div></div></div></article><article class="card rounded-lg p-6 flex flex-col items-center gap-4 text-center"><div class="inline-flex flex-col items-center justify-center gap-2 w-full"><span class="step-dot">3</span><h3 class="heading-font text-2xl">Complete and share your creation</h3></div><picture><img src="/images/step3.webp" alt="Completed Chiikawa Puzzle" loading="lazy" class="rounded-md w-full max-w-[400px] h-auto mx-auto step-img"></picture><p class="text-lg text-gray-300 max-w-prose mx-auto text-left">Watch your <strong>Chiikawa puzzle</strong> come to life as you successfully place all the pieces! Each completed character reveals the adorable final image, bringing joy and satisfaction to every puzzle session. Share your completed artwork with friends or challenge yourself with different characters.</p><div class="mt-2 space-y-2 text-left"><p class="font-semibold" style="color:var(--text)">Fun Ways to Play</p><ul class="list-disc pl-6 text-base text-gray-300 space-y-2 max-w-prose"><li><strong>Perfect Assembly:</strong> Try to build characters exactly as they should look for the most adorable results.</li><li><strong>Creative Mix-ups:</strong> Experiment with placing pieces in unexpected spots to create hilarious mixed-up versions.</li><li><strong>Speed Challenges:</strong> Time yourself completing each <em>Chiikawa game</em> and try to beat your personal records.</li><li><strong>Character Collection:</strong> Work through all available characters to see every cute design.</li><li><strong>Memory Training:</strong> Use the disappearing pieces mechanic to improve your visual memory skills while having fun.</li></ul></div></article></div></div><div class="hidden lg:block lg:col-span-2"></div></section><section class="space-y-6 about-section grid grid-cols-1 lg:grid-cols-12 gap-4 items-start"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><h2 id="about-chiikawa-puzzle" class="heading-font text-2xl sm:text-3xl text-center"><span class="h2-gradient">About Chiikawa Puzzle Game</span></h2><article class="card rounded-lg p-6 space-y-4"><picture><p class="text-lg text-gray-300 max-w-prose mx-auto text-left"><img alt="chiikawa puzzle game" width="300" height="300" loading="lazy" class="rounded-md w-full max-w-[300px] h-auto mx-auto step-img" src="/images/chiikawapuzzle.webp"></p></picture><p class="text-lg" style="color:var(--text)">Chiikawa Puzzle is a delightful memory-based puzzle game that brings the beloved world of Chiikawa characters to life in an interactive way. This charming browser game, developed by <a href="https://twitter.com/RemptyGame" rel="nofollow" target="_blank" style="text-decoration: underline;">emptygamer</a>, combines the cuteness of everyone's favorite small creatures with an innovative puzzle mechanic that challenges your memory skills. Each session offers a cozy, bite-sized gaming experience perfect for relaxation and mental exercise.</p><p class="text-lg text-gray-300"><strong>Gameplay overview</strong>: You'll work with adorable puzzle pieces featuring Chiikawa, Hachiware, Usagi, and other beloved characters from the series. The unique twist is the disappearing piece mechanic - once you place a puzzle piece, it vanishes from view! This means you need to rely entirely on your memory to remember where each part belongs as you build your favorite <em>Chiikawa puzzle</em> characters piece by piece.</p><p class="text-lg text-gray-300">Each <strong>Chiikawa game</strong> session takes just a few minutes to complete, making it ideal for quick breaks or whenever you need a moment of cute, calming entertainment. The gameplay flow is simple yet engaging: select your character, study the pieces, place them carefully, and watch your memory skills get tested as pieces disappear. The satisfaction of completing a character and seeing the final adorable image is incredibly rewarding.</p><p class="text-lg text-gray-300">This fan-made tribute to Nagano's wonderful Chiikawa universe is designed for instant browser play with no downloads or installations required. The game works smoothly on both desktop and mobile devices, featuring intuitive touch controls for phones and tablets. Whether you're a longtime Chiikawa fan or new to these adorable characters, the puzzle mechanics are easy to understand but challenging to master.</p><p class="text-lg text-gray-300">The beauty of this <em>Chiikawa puzzle</em> lies in its simplicity and charm. You can play it perfectly by assembling characters correctly, or have fun creating silly mixed-up versions by placing pieces in unexpected spots. Either way, you're guaranteed to smile as these lovable characters come together through your puzzle-solving skills and memory prowess.</p></article></div><div class="hidden lg:block lg:col-span-2"></div></section><section class="space-y-6 features-section grid grid-cols-1 lg:grid-cols-12 gap-4 items-start"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><h2 id="key-features-of-chiikawa-puzzle" class="heading-font text-2xl sm:text-3xl text-center"><span class="h2-gradient">Key features of Chiikawa Puzzle</span></h2><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-star"/></svg></div><span class="badge px-2">1</span></div><h3 class="heading-font text-lg">Memory-based gameplay</h3><p class="text-base text-gray-300">Experience unique puzzle mechanics where pieces disappear after placement! This innovative feature challenges your memory skills while you build adorable Chiikawa characters, making each session both fun and mentally engaging.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-users"/></svg></div><span class="badge px-2">2</span></div><h3 class="heading-font text-lg">Adorable Chiikawa characters</h3><p class="text-base text-gray-300">Build beloved characters like Chiikawa, Hachiware, and Usagi from the popular manga and anime series. Each character offers their own unique puzzle challenge with different piece arrangements and cute final results.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-badge-free"/></svg></div><span class="badge px-2">3</span></div><h3 class="heading-font text-lg">Simple and intuitive controls</h3><p class="text-base text-gray-300">Just click or tap to place pieces - it's that easy! The controls are designed to be accessible for all ages while providing smooth gameplay on both desktop computers and mobile devices.</p></article><article class="feature-card card rounded-lg p-5 flex flex-col gap-3"><div class="flex items-center justify-between"><div class="icon-wrap"><svg class="w-6 h-6" aria-hidden="true"><use href="#icon-cloud-off"/></svg></div><span class="badge px-2">4</span></div><h3 class="heading-font text-lg">Free browser gameplay</h3><p class="text-base text-gray-300">Play instantly in your web browser with no downloads, installations, or accounts required. Completely free access to all Chiikawa puzzle content - just open the page and start building your favorite characters!</p></article></div></div><div class="hidden lg:block lg:col-span-2"></div></section><section class="space-y-6 faq-section grid grid-cols-1 lg:grid-cols-12 gap-4 items-start"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><h2 id="faq-about-chiikawa-puzzle" class="heading-font text-2xl sm:text-3xl text-center"><span class="h2-gradient">FAQS about Puzzle Game Chiikawa</span></h2><div class="grid grid-cols-1 gap-4"><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">Is Chiikawa Puzzle official?</h3></summary><p class="mt-2 text-base text-gray-300">No, <strong>Chiikawa Puzzle</strong> is a fan-made game created by enthusiasts of the Chiikawa series. The original Chiikawa characters and universe were created by Nagano. This puzzle game is a loving tribute that allows fans to interact with these beloved characters in a new and engaging way, offering a unique puzzle experience that celebrates the charm and cuteness of the Chiikawa world.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">How does the memory mechanic work in Chiikawa Puzzle?</h3></summary><p class="mt-2 text-base text-gray-300">Here's the fascinating twist that makes <em>Chiikawa Puzzle</em> unique - when you place a piece, it completely vanishes from view! This means you need to rely entirely on your memory to remember exactly where each piece belongs. It creates a challenging yet rewarding experience as you build your favorite Chiikawa characters piece by piece, testing both your puzzle-solving skills and visual memory.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">Which Chiikawa characters can I play with?</h3></summary><p class="mt-2 text-base text-gray-300">You can build beloved characters like <strong>Chiikawa</strong>, <strong>Hachiware</strong>, <strong>Usagi</strong>, and other adorable friends from the popular manga and anime series. Each character in this <em>Chiikawa game</em> has their own unique puzzle arrangement and difficulty level, offering variety and replay value. Whether you prefer the main trio or want to explore other cute creatures from the series, there's a puzzle challenge waiting for every Chiikawa fan!</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">Can I play Chiikawa Puzzle on my mobile device?</h3></summary><p class="mt-2 text-base text-gray-300">Absolutely! <strong>Chiikawa Puzzle</strong> works beautifully on smartphones and tablets. The game features smooth touch controls - just tap to place pieces and swipe to navigate between different characters. The responsive design ensures that whether you're playing on a phone, tablet, or desktop computer, you'll get the same delightful puzzle experience with all the cute Chiikawa charm intact.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">What are the controls for Chiikawa Puzzle?</h3></summary><p class="mt-2 text-base text-gray-300">The controls for <em>Chiikawa Puzzle</em> are wonderfully simple! Use your mouse or finger to click/tap and place puzzle pieces where they belong. Arrow keys help you navigate between different characters, and you can press Enter or Spacebar to start playing. The intuitive design means anyone can jump in and start building their favorite Chiikawa characters right away, regardless of gaming experience.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">Is Chiikawa Puzzle completely free to play?</h3></summary><p class="mt-2 text-base text-gray-300">Yes! <strong>Chiikawa Puzzle</strong> is completely free to play with no hidden costs, no ads, and no tricks. This fan-made game was created out of love for the Chiikawa series and is offered freely to fellow fans. You don't need to create accounts, make purchases, or deal with any monetization - just pure <em>Chiikawa game</em> fun that celebrates these adorable characters in an accessible way for everyone to enjoy.</p></details><details class="card rounded-md p-5"><summary class="cursor-pointer"><h3 class="font-semibold text-lg">What makes Chiikawa Puzzle appealing to Chiikawa fans?</h3></summary><p class="mt-2 text-base text-gray-300">This <em>Chiikawa puzzle</em> lets you interact with beloved characters in a completely new way! Instead of just watching or reading about Chiikawa, Hachiware, and Usagi, you get to actively build them piece by piece. It's like stepping into their cute world and becoming part of the creative process. The memory challenge adds an extra layer of engagement, while the satisfying completion of each character brings that warm, fuzzy feeling that Chiikawa fans love so much.</p></details></div></div><div class="hidden lg:block lg:col-span-2"></div></section><section class="space-y-6 comments-section grid grid-cols-1 lg:grid-cols-12 gap-4 items-start"><div class="hidden lg:block lg:col-span-2"></div><div class="lg:col-span-8"><h2 id="discuss-chiikawa-puzzle" class="heading-font text-2xl sm:text-3xl text-center mb-6">Discuss Chiikawa Puzzle Online</h2><script defer type="text/javascript">
+						const tool_id = "1";
+							const tool_image = "https://chiikawapuzzle.co/images/logo.webp";
+						const tool_title = "Chiikawa Puzzle";
+						const tool_name = "Chiikawa Puzzle";
+						const tool_url = "https://chiikawapuzzle.co/";
+							window.wwwdomain = '';
+							window.iflogin = 0;
+							const _LANG={};
+						_LANG.try_again_later='try again later';
+						_LANG.removed_from_fav='removed from fav';
+						_LANG.added_from_fav='added from fav';
+						_LANG.continue_by_sign='continue by sign';
+						_LANG.submitting='submitting';
+						_LANG.thankyou='thank you';
+						_LANG.post='post';
+						_LANG.exitfullscreen='exit fullscreen';
+						_LANG.confirm='confirm';
+						_LANG.cancel='cancel';
+						_LANG.copied='copied';
+						_LANG.yourname='your name';
+						_LANG.yourcomment='your comment';
+						_LANG.submitted='submitted';
+						_LANG.voted_today='voted today';
+						_LANG.under_review='under review';
+						_LANG.just_now='just now';
+						_LANG.reply='reply';
+						_LANG.leaveacomment='leave a comment';
+						_LANG.at_least_3='at least 3';
+						_LANG.at_least_10='at least 10';
+						</script><div class="comments rounded-lg p-6" id="comments"><form class="comments__form comments__main-form" id="commentForm"><input type="hidden" name="typeid" value="1" id="typeid"><input type="hidden" name="parentid" value="0" id="parentid"><input type="hidden" name="source_title" value="Chiikawa Puzzle" type="hidden" id="source_title"><input type="hidden" name="source_uri" value="https://chiikawapuzzle.co/" type="hidden" id="source_uri"><input type="hidden" name="type" value="tool" id="type"><div class="comments__form-group"><input value="" placeholder="your name" type="text" id="comment_name" name="comment_name" class="comments__form-input" required></div><div class="comments__form-group"><textarea placeholder="your comment" id="comment_message" name="comment_message" class="comments__form-input comments__form-textarea" required></textarea><div class="g-recaptcha" data-sitekey="6LeafKwrAAAAAJLHvuf-PS9kPhfYN2-40qoOJaVj"></div></div><button type="submit" class="comments__form_submit">leave a comment</button></form><div id="comments-container" class="comments__list"></div><div class="comments__pagination-show"></div></div><script src="/template/default/js/comments_ajax.js"></script><script defer>
+					new IntersectionObserver(([e], o) => e.isIntersecting && (
+					  o.unobserve(e.target),
+					  new CommentSystem({
+						container: '#comments-container',
+						pagination: '.comments__pagination-show',
+						typeid: 1,
+						source_title: 'Chiikawa Puzzle',		
+						source_uri: 'https://chiikawapuzzle.co/',
+						type: 'tool',
+						loginNeeded: 0,
+						currentPage: 1
+					  })
+					), { rootMargin: '1px' }).observe(document.querySelector('#comments-container'));
+					</script><script defer type="text/javascript" src="/template/default/js/comments.js"></script><script defer type="text/javascript" src="/template/default/js/submitRating.js"></script><script>
+					</script></div></section></main><footer class="mt-8 border-t border-white border-opacity-10 footer-border"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid gap-3 sm:flex sm:items-center sm:justify-between"><p class="text-sm text-gray-400">© <span id="year"></span> Chiikawa Puzzle. All rights reserved.</p><nav class="flex flex-wrap items-center gap-4 text-sm"><a href="/cdn-cgi/l/email-protection#026a676e6e6d42616a6b6b69637563727778786e672c616d" rel="nofollow no-referrer">Contact Us</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-use">Terms of Use</a></nav></div></footer><button id="back-to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 5l-7 7h4v7h6v-7h4z"/></svg></button><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+	var btn = document.getElementById('back-to-top');
+	if(!btn) return;
+	function onScroll(){
+		var vh = (window.innerHeight||800)/2;
+		btn.style.display = window.scrollY > vh ? 'flex' : 'none';
+	}
+	window.addEventListener('scroll', onScroll, { passive: true });
+	btn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+	onScroll();
+})();
+</script><script>
+    function showToast(message, isSuccess = true, confirm) {
+      if (confirm) {
+        return showConfirm(message, confirm);
+      }
+      const toast = document.createElement("div");
+      toast.className = `toast ${isSuccess ? "toast-success" : "toast-error"}`;
+      toast.innerHTML = `<span class="toast-message">${message}</span>`;
+      const fullscreenElement =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.msFullscreenElement;
+      if (fullscreenElement) {
+        fullscreenElement.appendChild(toast);
+      } else {
+        document.body.appendChild(toast);
+      }
+      setTimeout(() => toast.classList.add("show"), 10);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+    function showConfirm(message, options = {}) {
+      if (typeof options === "function") {
+        options = { onOk: options };
+      }
+      const {
+        title = _LANG.confirm ? _LANG.confirm : "confirm",
+        okText = _LANG.confirm ? _LANG.confirm : "confirm",
+        cancelText = _LANG.cancel ? _LANG.cancel : "cancel",
+        onOk,
+        onCancel,
+      } = options;
+      const dialog = document.createElement("div");
+      dialog.className = "toast-dialog";
+      dialog.innerHTML = `<div class="toast-dialog-backdrop"></div><div class="toast-dialog-content"><div class="toast-dialog-header"><span class="toast-dialog-title">${title}</span><span class="toast-dialog-icon">❓</span></div><div class="toast-dialog-body">${message}</div><div class="toast-dialog-footer"><button class="toast-dialog-btn toast-dialog-cancel">${cancelText}</button><button class="toast-dialog-btn toast-dialog-ok">${okText}</button></div></div>`;
+      document.body.appendChild(dialog);
+      setTimeout(() => dialog.classList.add("show"), 10);
+      return new Promise((resolve) => {
+        const okBtn = dialog.querySelector(".toast-dialog-ok");
+        const cancelBtn = dialog.querySelector(".toast-dialog-cancel");
+        const closeDialog = (result) => {
+          dialog.classList.remove("show");
+          setTimeout(() => {
+            dialog.remove();
+            resolve(result);
+            if (result && typeof onOk === "function") {
+              onOk();
+            }
+            if (!result && typeof onCancel === "function") {
+              onCancel();
+            }
+          }, 200);
+        };
+        okBtn.addEventListener("click", () => closeDialog(true));
+        cancelBtn.addEventListener("click", () => closeDialog(false));
+        dialog
+          .querySelector(".toast-dialog-backdrop")
+          .addEventListener("click", () => closeDialog(false));
+      });
+    }
+	var toastStyleEl = document.getElementById('toast-style-el') || document.createElement('style');
+	toastStyleEl.id = 'toast-style-el';
+	toastStyleEl.textContent = `.toast-dialog{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:2147483647;opacity:0;pointer-events:none;transition:opacity 0.2s ease}.toast-dialog.show{opacity:1;pointer-events:auto}.toast-dialog-backdrop{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);backdrop-filter:var(--backdrop-blur)}.toast-dialog-content{position:relative;background:var(--search-bg);border-radius:12px;width:90%;max-width:400px;overflow:hidden;box-shadow:var(--shadow-hover);transform:translateY(20px);transition:transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);border:1px solid var(--border-foot-color)}.toast-dialog.show.toast-dialog-content{transform:translateY(0)}.toast-dialog-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}.toast-dialog-title{font-size:18px;font-weight:600;color:var(--text-color)}.toast-dialog-icon{font-size:20px;color:var(--primary-color)}.toast-dialog-body{padding:15px 20px 35px 20px;font-size:18px;line-height:1.5;color:var(--text-color);text-align:center}.toast-dialog-footer{display:flex;border-top:1px solid var(--border-foot-color)}.toast-dialog-btn{flex:1;padding:14px;border:none;background:none;font-size:16px;cursor:pointer;transition:all 0.2s;color:var(--text-color)}.toast-dialog-cancel{border-right:1px solid var(--border-foot-color)}.toast-dialog-cancel:hover{background-color:var(--url-hover-bg)}.toast-dialog-ok{font-weight:500;color:var(--primary-color)}.toast-dialog-ok:hover{background-color:rgba(7,193,96,0.1)}@media(max-width:480px){.toast-dialog-content{width:calc(100%-40px);margin:20px}.toast-dialog-body{padding:20px 16px}.toast-dialog-btn{padding:12px}}`;
+	if(!toastStyleEl.parentNode){ document.head.appendChild(toastStyleEl); }
+</script><div id="html-toc" class="html-toc"><div id="html-toc-backdrop" class="html-toc-backdrop"></div><nav id="html-toc-pop" class="html-toc-pop" aria-label="Table of contents"><div class="toc-header">Table of contents</div><ul class="toc-list"><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#how-to-play-chiikawa-puzzle">How to play</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#about-chiikawa-puzzle">About Chiikawa Puzzle Game</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#key-features-of-chiikawa-puzzle">Key features</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#faq-about-chiikawa-puzzle">FAQs</a></li><li class="toc-item"><span class="toc-dot"></span><a class="toc-link" href="#discuss-chiikawa-puzzle">Discuss</a></li></ul></nav></div><button id="toc-toggle" aria-label="Table of contents" class="toc-toggle"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="5" cy="6" r="1.5" /><circle cx="5" cy="12" r="1.5" /><circle cx="5" cy="18" r="1.5" /><rect x="9" y="5" width="10" height="2" rx="1" /><rect x="9" y="11" width="10" height="2" rx="1" /><rect x="9" y="17" width="10" height="2" rx="1" /></svg></button><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="icon-message" viewBox="0 0 24 24"><path fill="currentColor" d="M21 6a3 3 0 0 0-3-3H6A3 3 0 0 0 3 6v9a3 3 0 0 0 3 3h8l4 3v-3h0a3 3 0 0 0 3-3V6Z"/></symbol><symbol id="icon-maximize" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h7v2H6v5H4V4Zm10 0h6v6h-2V6h-4V4ZM4 14h2v4h4v2H4v-6Zm14 0h2v6h-6v-2h4v-4Z"/></symbol><symbol id="icon-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.5V12h2.5V9.7c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2 .2 2.2 .2V8H15c-1.2 0-1.6 .8-1.6 1.5V12h2.8l-.45 2.9H13.4v7A10 10 0 0 0 22 12Z"/></symbol><symbol id="icon-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.6c0-1.34-.02-3.06-1.86-3.06-1.86 0-2.14 1.45-2.14 2.95v5.71H9.33v-11.56h3.41v1.58h.05c.47-.88 1.63-1.81 3.35-1.81 3.58 0 4.24 2.36 4.24 5.43v6.36ZM5.34 7.31a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V8.89h3.56v11.56Z"/></symbol><symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><rect x="4" y="4" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="none"/></symbol><symbol id="icon-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2l2.9 6 6.6 .9-4.8 4.6 1.2 6.5L12 17.8 6.1 20l1.2-6.5L2.5 9l6.6-.9L12 2z"/></symbol><symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g></symbol><linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient><symbol id="icon-reddit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="13" r="1.2" fill="currentColor"/><circle cx="15" cy="13" r="1.2" fill="currentColor"/><path d="M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14.5 6.5l2 .5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="7" r="1.2" fill="currentColor"/></symbol><symbol id="icon-cloud-off" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3l18 18-1.4 1.4-2.3-2.3H7a4 4 0 0 1-4-4c0-2 1.5-3.6 3.4-3.9a6 6 0 0 1 7.6-4.6c2 .6 3.6 2.3 4 4.3h.1A4 4 0 0 1 21 12c0 1-.4 1.9-1 2.6l-1.5-1.5c.3-.3 .5-.7 .5-1.1 0-1.1-.9-2-2-2h-1v-.5a4 4 0 0 0-7.9-.8l-1.7-1.7L3 3z"/></symbol><symbol id="icon-badge-free" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.5 2.5L17 2l2 2 2.5-2.5L22 6l2 2-2.5 2.5L24 13l-4 .5L19.5 16 17 14l-2.5 2L14 13.5 10 13l.5-2.5L8 8l2-2-1-4 3 1L12 2z" opacity=".25"/><text x="12" y="14" font-size="8" text-anchor="middle" font-family="Inter, Arial" fill="currentColor" font-weight="700">FREE</text></symbol><symbol id="icon-users" viewBox="0 0 24 24"><path fill="currentColor" d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm-10.5 7a5.5 5.5 0 0 1 11 0V20H5.5v-2Zm13.2-8.6a3 3 0 1 1-4.2 4.2 5 5 0 0 1 4.2-4.2Zm3.8 8.6a4.5 4.5 0 0 0-6.3-4.1 6.5 6.5 0 0 1 1.5 4.1V20h4.8v-2Z"/></symbol><symbol id="icon-rectangle" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol></svg><script>
+			(function(){
+				const $ = (s, r = document) => r.querySelector(s);
+				const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+				const store = window.localStorage;
+
+				function renderIcons(){ if(window.lucide){ window.lucide.createIcons(); } }
+				function setYear(){ const y = new Date().getFullYear(); $('#year').textContent = y; }
+				function initPlayed(){
+					const c = Number(1918) || 0;
+					const el = document.getElementById('played-text');
+					if(el){ el.textContent = '(played ' + c.toLocaleString() + ' times)'; }
+				}
+				function initFav(){ /* removed */ }
+				function initRating(){
+					const stars = $$('.star');
+					const k = 'bb_rating_value';
+					let rated = parseInt(store.getItem(k)||'0',10);
+					function paint(n){
+						stars.forEach((b,i)=>{
+							const svg=b.querySelector('svg'); const path=b.querySelector('svg path');
+							if(!svg || !path) return;
+							if(i < n){
+								path.style.fill='url(#starGrad)';
+								path.style.stroke='url(#starGrad)';
+							}else{
+								path.style.fill='none';
+								path.style.stroke='currentColor';
+							}
+						});
+						$('#avg-rating').textContent = '5/5';
+					}
+					paint(rated||5);
+					stars.forEach(btn=>{
+						btn.addEventListener('mouseenter',()=> paint(parseInt(btn.dataset.star,10)));
+						btn.addEventListener('mouseleave',()=> paint(rated||5));
+						btn.addEventListener('click',()=>{ rated = parseInt(btn.dataset.star,10); store.setItem(k,String(rated)); paint(rated); });
+					});
+				}
+				function initShare(){
+					const url = location.href; const title = document.title;
+					const showToast=(msg)=>{
+						let toast=document.getElementById('copy-toast');
+						if(!toast){
+							toast=document.createElement('div');
+							toast.id='copy-toast';
+							toast.style.position='fixed';toast.style.left='50%';toast.style.top='50%';toast.style.transform='translate(-50%,-50%)';
+							toast.style.zIndex='1000';toast.style.padding='12px 16px';toast.style.borderRadius='8px';toast.style.background='rgba(0,0,0,.75)';toast.style.color='#fff';toast.style.fontSize='16px';toast.style.boxShadow='0 8px 24px rgba(0,0,0,.2)';
+							document.body.appendChild(toast);
+						}
+						toast.textContent=msg||'Copied';
+						toast.style.display='block';
+						setTimeout(()=>{toast.style.display='none';},3000);
+					};
+					document.addEventListener('click',(e)=>{
+						const t = e.target.closest('[data-share]'); if(!t) return; e.preventDefault();
+						const type = t.getAttribute('data-share');
+						const map = {
+							x: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+							facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+							linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+							reddit: `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
+							discord: `javascript:navigator.clipboard.writeText("${title} ${url}").then(()=>alert("Link copied! Paste it in Discord."));`
+						};
+						if(type==='copy'){
+							const done=()=>showToast('Copied');
+							if(navigator.clipboard && typeof navigator.clipboard.writeText==='function'){
+								navigator.clipboard.writeText(url).then(done).catch(done);
+							}else{
+								const ta=document.createElement('textarea');
+								ta.value=url; ta.style.position='fixed'; ta.style.opacity='0';
+								document.body.appendChild(ta); ta.focus(); ta.select();
+								try{ document.execCommand('copy'); }catch(e){}
+								document.body.removeChild(ta); done();
+							}
+							return;
+						}
+						if(map[type]){ window.open(map[type], '_blank', 'noopener,noreferrer,width=600,height=560'); }
+					});
+				}
+				function initFullscreen(){
+					const iframe = $('#game-frame');
+					const fsBtn = $('#fs-btn');
+					const internalFsBtn = $('#internal-fs-btn');
+					const frameWrap = $('#game-frame-wrap');
+					const section = $('#play-speed-stars-unblocked-online');
+					if(iframe && fsBtn){
+					fsBtn.addEventListener('click',()=>{
+						if(iframe.requestFullscreen){
+								iframe.requestFullscreen().catch(()=>{});
+							}
+						});
+					}
+					const toggleInternalFs = ()=>{
+						const active = section.classList.toggle('internal-fullscreen-section');
+						document.documentElement.classList.toggle('internal-fs', active);
+						const controls = document.getElementById('game-controls');
+						if(controls){
+							document.documentElement.style.setProperty('--controls-h', Math.max(controls.offsetHeight || 0, 72) + 'px');
+						}
+					};
+					if(internalFsBtn && section){
+						internalFsBtn.addEventListener('click', toggleInternalFs);
+						// Optional: double-click to toggle too
+						if(frameWrap){
+							frameWrap.addEventListener('dblclick', toggleInternalFs);
+						}
+					}
+				}
+				function initToc(){
+					if(window.__tocInited__) return; window.__tocInited__ = true;
+					let tocBtn = document.getElementById('toc-toggle');
+					
+					const htmlToc=document.getElementById('html-toc');
+					const pop=document.getElementById('html-toc-pop');
+					const backdrop=document.getElementById('html-toc-backdrop');
+					if(!htmlToc||!pop||!backdrop) return;
+					htmlToc.style.zIndex='2147483599';
+					backdrop.style.zIndex='2147483598';
+					pop.style.zIndex='2147483600';
+					let opened=false;
+					const open=()=>{ opened=true; htmlToc.classList.add('open'); };
+					const close=()=>{ opened=false; htmlToc.classList.remove('open'); };
+					const toggle=()=>{ opened? close() : open(); };
+					if(!tocBtn.dataset.inited){
+						const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints>0);
+						if(!isTouch){ tocBtn.addEventListener('mouseenter',()=>{ open(); }); }
+						tocBtn.addEventListener('click',(e)=>{ e.preventDefault(); e.stopPropagation(); toggle(); });
+						tocBtn.dataset.inited='1';
+					}
+					if(!pop.dataset.inited){
+						backdrop.addEventListener('click',()=> close());
+						document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+						document.addEventListener('click',(e)=>{
+							if(!opened) return;
+							const inPop = htmlToc.contains(e.target);
+							const inBtn = tocBtn.contains(e.target);
+							if(!inPop && !inBtn){ close(); }
+						},{passive:true});
+						htmlToc.addEventListener('click',(e)=> e.stopPropagation());
+						htmlToc.addEventListener('mouseleave', ()=> close());
+						pop.dataset.inited='1';
+					}
+				}
+				function init(){
+					renderIcons();
+					setYear();
+					initPlayed();
+					initFav();
+					initRating();
+					initShare();
+					initFullscreen();
+					try { initToc(); } catch(e){}
+					// compute controls height for internal fullscreen padding
+					setTimeout(()=>{
+						const controls = document.getElementById('game-controls');
+						if(controls){
+							const h = Math.max(controls.offsetHeight || 0, 72);
+							document.documentElement.style.setProperty('--controls-h', h + 'px');
+						}
+					}, 50);
+					window.addEventListener('resize',()=>{
+						const controls = document.getElementById('game-controls');
+						if(controls){
+							document.documentElement.style.setProperty('--controls-h', Math.max(controls.offsetHeight || 0, 72) + 'px');
+						}
+					});
+				}
+				init();
+			})();
+    </script></body></html>
